@@ -2,7 +2,7 @@
 
 This project is an implementation for human face recognition based on local feature descriptors and fisher_faces, coded in Python language.
 
-Here we use SIFT, SURF, ORB to extract the local feature descriptor of human face.
+For local feature descriptors, here we use SIFT, SURF, ORB to extract the local feature descriptor of human face.
 
 ## Project Structure
 
@@ -10,14 +10,20 @@ Here we use SIFT, SURF, ORB to extract the local feature descriptor of human fac
 JUST CLONE THE REPOSITORY AND RUN IT!
 + Human face image dataset is in [YALE_IMAGES](./YALE_IMAGES) directory, which contains 15 face classes, and each class contains 11 face images.
 + For face recognition based on local feature descriptors, [Dataset](./dataset/local_descriptor) and [dictionary](./dictionary/local_descriptor) directories are outputs of the runnable Python script, [dataset](./dataset) is the histogram set of training images while [dictionary](./dictionary) is learned from the dataset using Kmeans algorithm.
-+ P.S. Clear the two directory ([Dataset](./dataset) and [dictionary](./dictionary)) to rebuild visual dictionary and retrain the classifier.
++ P.S. Clear the two directory ([dataset](./dataset) and [dictionary](./dictionary)) to rebuild visual dictionary and retrain the classifier.
 
 ## Results
-+ Local Feature Descriptors
++ Result of Local Feature Descriptors
   ------
 ![img_result_LFD_1](./doc_imgs_folder/LFD_result_1.png)
 ![img_result_LFD_2](./doc_imgs_folder/LFD_result_2.png)
+
 + Eigen Faces
+  ------
+![eigenfaces](./doc_imgs_folder/eigenfaces.png)
+
++ Result of Eigen Faces 
+  ------
 ![img_result_EF_1](./doc_imgs_folder/EF_result_1.png)
 ![img_result_EF_2](./doc_imgs_folder/EF_result_2.png)
 
