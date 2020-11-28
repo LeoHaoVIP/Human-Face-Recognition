@@ -10,7 +10,7 @@ For local feature descriptors, here we use SIFT, SURF, ORB to extract the local 
 JUST CLONE THE REPOSITORY AND RUN IT!
 + Human face image dataset is in [YALE_IMAGES](./YALE_IMAGES) directory, which contains 15 face classes, and each class contains 11 face images.
 + For face recognition based on local feature descriptors, [Dataset](./dataset/local_descriptor) and [dictionary](./dictionary/local_descriptor) directories are outputs of the runnable Python script, [dataset](./dataset) is the histogram set of training images while [dictionary](./dictionary) is learned from the dataset using Kmeans algorithm.
-+ P.S. Clear the two directory ([dataset](./dataset) and [dictionary](./dictionary)) to rebuild visual dictionary and retrain the classifier.
++ P.S. Clear the two directory ([dataset](./dataset/local_descriptor) and [dictionary](./dictionary/local_descriptor)) to rebuild visual dictionary and retrain the classifier.
 
 ## Results
 + Result of Local Feature Descriptors
