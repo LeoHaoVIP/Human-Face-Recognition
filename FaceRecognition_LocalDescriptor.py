@@ -18,9 +18,9 @@ CLASS_NUM = 15
 # Adjustable
 LEARNING_SAMPLES_NUM = 11
 # Self-Adjustable
-CLUSTER_SIZE = 50
-# Adjustable
-BINS_NUM = CLASS_NUM * CLUSTER_SIZE
+CLUSTER_SIZE = 0
+# Self-Adjustable with Dictionary size
+BINS_NUM = 0
 # Adjustable
 TRAIN_SET_RATIO = 0.6
 classes_info = []
@@ -129,8 +129,8 @@ def build_dictionary():
 
 
 # 获取给定图像的histogram
+@jit
 def img2histogram(image):
-    global BINS_NUM
     # start = time.time()
     # 获取图像描述子
     descriptors = img2descriptors(image)
@@ -140,7 +140,6 @@ def img2histogram(image):
     # dictionary中的word在各个像素点上的映射
     word_map = np.argmin(distances, 1)
     # 构造直方图，大小为BINS_NUM
-    BINS_NUM = CLASS_NUM * CLUSTER_SIZE
     [histogram, _] = np.histogram(word_map, BINS_NUM, range=(0, BINS_NUM - 1))
     # IMPORTANT：归一化是必要的，因为每张图片的特征点数量不同
     if np.sum(histogram) > 0:
@@ -271,6 +270,8 @@ if __name__ == '__main__':
         logger('Saving dictionary...')
         np.savetxt(dictionary_path, dictionary)
     print('Dictionary size: ', np.shape(dictionary))
+    # 更新BINS_NUM
+    BINS_NUM = len(dictionary)
     # 训练集、测试集路径
     dataset_path = './dataset/local_descriptor/{0}'.format(DESCRIPTOR_TYPE)
     if os.path.exists(dataset_path + '/train_data'):
